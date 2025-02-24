@@ -47,6 +47,8 @@ func trim(earliest_tick_to_keep: int):
 		if tick < earliest_tick_to_keep:
 			_buffer.erase(tick)
 
+# TODO: Discuss, no longer strictly needed
+# (process_settings is now in state-buffer)
 func clear():
 	_buffer.clear()
 
@@ -64,3 +66,9 @@ func ticks() -> Array:
 
 func erase(tick):
 	_buffer.erase(tick)
+
+func get_latest_tick() -> int:
+	return _buffer.keys().max()
+
+func get_earliest_tick() -> int:
+	return _buffer.keys().min()
